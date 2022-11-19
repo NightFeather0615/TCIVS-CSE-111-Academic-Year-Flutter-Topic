@@ -118,8 +118,6 @@ class AudioController {
     return _currentSongIsPlaying;
   }
 
-
-
   Future play(int index) async {
     _currentPlayingSongProgress.value = 0;
     _currentPlayingSongIndex.value = index;

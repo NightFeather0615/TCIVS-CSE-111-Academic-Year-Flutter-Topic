@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:cse_111ay_flutter_topic_demo/service/audio_controller.dart';
 import 'package:cse_111ay_flutter_topic_demo/widget/author_page_app_bar.dart';
 import 'package:cse_111ay_flutter_topic_demo/widget/author_page_info_row.dart';
@@ -34,8 +33,12 @@ class MyApp extends StatelessWidget {
           indicatorColor: Colors.blueGrey.shade800,
           cardColor: Colors.blueGrey.shade900,
           secondaryHeaderColor: Colors.grey.shade500,
-          progressIndicatorTheme: ProgressIndicatorThemeData(color: Colors.blueGrey.shade800),
-          chipTheme: ChipThemeData(backgroundColor: Colors.blueGrey.shade700),
+          progressIndicatorTheme: ProgressIndicatorThemeData(
+              color: Colors.blueGrey.shade800
+          ),
+          chipTheme: ChipThemeData(
+              backgroundColor: Colors.blueGrey.shade700
+          ),
           radioTheme: RadioThemeData(
             overlayColor: MaterialStateProperty.all(Colors.blueGrey.shade800),
             fillColor: MaterialStateProperty.all(
@@ -50,7 +53,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-
   const MyHomePage({
     Key? key,
   }) : super(key: key);
@@ -75,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
           future: fetchData("結束バンド"),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
+              songData.clear();
               for (var element in (snapshot.data["songs"] as List<dynamic>)) {
                 songData.add(SongData.fromJson(element));
               }
